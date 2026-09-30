@@ -38,7 +38,7 @@ Step2: Filter the data to select the subject of our research.
                             combo_map$SEX == c("male","female")]
 //It selects the subjects that equal or over 18 and contains sex information. Bacause there is no age infomation in cafe table, we will not use this table in next step. 
 
-Step3: Caculate the mean value of fiber taken and fat taken
+Step3: Calculate the mean value of fiber taken and fat taken
 > combo_subject$diet_group <- ifelse(combo_map$TOTAL_DIETARY_FIBER_G_AVE >= fiber_mean, 
                                         "high_fiber", 
                                             "low_fiber")
