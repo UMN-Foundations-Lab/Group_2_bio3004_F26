@@ -1,1 +1,64 @@
+This is your lab notebook! Below is an example entry. Please use that format for all entries.
+###############
+Date: 1/1/2021
+Goal to accomplish: Provide an example lab manual entry
+The code used, with comments:
+#This is where you would put the code you worked on.
+variable.X <- function(my.data.frame)
+Description of the results: I made a fake notebook entry. 
+Output file names (if any produced): This is where you would list any scripts or data files you produced.
+The next steps: None. This example is finished.
+How much time I/we spent: 10 minutes
+Name(s): Max Kramer
+###############
 
+Date: 9/29/2026
+Goal: Import the dataset and confirm the sample size
+Code:
+Step1: Create tables for two datasets
+setwd("D://桌面/生物project")
+dir()
+//I saved the dataset in desktop folder of the project, and this makes sure the R is correct in the working folder
+>combo_map <- read.table("Wu_COMBO_mapping_file.txt", 
+                       header = TRUE, 
+                       sep = "\t", 
+                       check.names = FALSE,
+                       comment = "",
+                       row.names = 1)
+>cafe_map <- read.table("Wu_cafe_mapping_file-1.txt", 
+                      header = TRUE, 
+                      sep = "\t", 
+                      check.names = FALSE,
+                      comment = "",
+                      row.names = 1)
+//This code create tables for two datasets. Then we can read and analyse the data. 
+
+Step2: Filter the data to select the subject of our research. 
+>combo_subject <- combo_map[combo_map$AGE >= 18 & 
+                            combo_map$SEX == c("male","female")]
+//It selects the subjects that equal or over 18 and contains sex information. Bacause there is no age infomation in cafe table, we will not use this table in next step. 
+
+Step3: Caculate the mean value of fiber taken and fat taken
+> combo_subject$diet_group <- ifelse(combo_map$TOTAL_DIETARY_FIBER_G_AVE >= fiber_mean, 
+                                        "high_fiber", 
+                                            "low_fiber")
+> combo_subject$fat_group <- ifelse (combo_map$TOTAL_FAT_G_AVE >= fat_mean, 
+                                        "high-fat", 
+                                            "low_fat")
+//It seperates the High fiber dietary group and high fat dietary group
+
+Step 4: Divide the sex group by male and female
+> female_highfiber<- combo_subject[combo_subject$SEX == "female" & 
+                                    combo_subject$diet_group== "fiber_high"]
+> male_highfiber<- combo_subject[combo_subject$SEX == "male" & 
+                                    combo_subject$diet_group== "fiber_high"]
+> female_highfat<- combo_subject[combo_subject$SEX == "female" & 
+                                    combo_subject$fat_group== "fat_high"]
+> male_highfat<- combo_subject[combo_subject$SEX == "male" & 
+                                    combo_subject$fat_group== "fat_high"]
+//It seperates the four group, high-fier group of male and female, and high-fat group of male and female.  
+
+Description: Create tables for the datasets, and find there is no sex information in cafe dataset. The cafe tables may not be suitable to detect the influence of sex. Finally, seperate 4 groups for different objectives.
+Next steps: Detect the rarefaction curve of dataset, caculate the alpha diversity and beta diversity of four groups
+Time: 2h25m
+Name: Junyu Nan
