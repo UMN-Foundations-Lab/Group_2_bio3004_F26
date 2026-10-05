@@ -12,6 +12,7 @@ How much time I/we spent: 10 minutes
 Name(s): Max Kramer
 ###############
 
+###############
 Date: 9/29/2026
 Goal: Import the dataset and confirm the sample size
 Code:
@@ -57,7 +58,9 @@ Step 4: Divide the sex group by male and female
 > male_highfat<- combo_subject[combo_subject$SEX == "male" & 
                                     combo_subject$fat_group== "fat_high"]
 //It seperates the four group, high-fier group of male and female, and high-fat group of male and female.  
+###############
 
+###############
 Description: Create tables for the datasets, and find there is no sex information in cafe dataset. The cafe tables may not be suitable to detect the influence of sex. Finally, seperate 4 groups for different objectives.
 Next steps: Detect the rarefaction curve of dataset, caculate the alpha diversity and beta diversity of four groups
 Time: 2h25m
@@ -77,3 +80,4 @@ Output file names (if any produced): none
 The next steps: Detect the rarefaction curve of dataset. 
 How much time I/we spent: 20 minutes
 Name(s): Junyu Nan
+###############
