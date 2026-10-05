@@ -62,3 +62,18 @@ Description: Create tables for the datasets, and find there is no sex informatio
 Next steps: Detect the rarefaction curve of dataset, caculate the alpha diversity and beta diversity of four groups
 Time: 2h25m
 Name: Junyu Nan
+
+
+Date: 2026/10/3
+Goal to accomplish: fix the problem
+The code used, with comments:
+#I checked the previous number of participants and found that it was less than the actual figure. The problem is occur in the step 2 that filtering the subject. 
+combo_subject <- combo_map[combo_map$AGE >= 18 & 
+                             combo_map$SEX %in% c("female", "male"),]
+# I changed the "==" to "%in%". This is because c()is conbine the value, and "==" means equals. "%in%" will determine whether the elements of a vector exist in another vector. It will more related to the filtering. 
+
+Description of the results: Fix a problem of the subjects of table is less than the actual figure. 
+Output file names (if any produced): none
+The next steps: Detect the rarefaction curve of dataset. 
+How much time I/we spent: 20 minutes
+Name(s): Junyu Nan
