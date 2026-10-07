@@ -81,3 +81,31 @@ The next steps: Detect the rarefaction curve of dataset.
 How much time I/we spent: 20 minutes
 Name(s): Junyu Nan
 ###############
+
+###############
+Date: 2026/10/6
+Goal to accomplish: rarefaction curve of dataset
+The code used, with comments:
+Step 1: Download the Wu_COMBO.biom and Wu_cafe.biom file from the shared from msi. 
+ssh nan00017@agate.msi.umn.edu
+cd /
+cd projects/standard/biol3004/shared/data/Wu
+#Use the fillzilla to download files.
+
+Step 2: Rarefaction
+srun -N 1 -n 1 -t 4:00:00 -p interactive --tmp 20gb --pty bash 
+#use this command to start an interactive job
+module load qiime2/2018.6
+#Load qiime and it is prepared to the rarefaction
+qiime tools import \
+  --input-path /projects/standard/biol3004/shared/data/Wu/Wu_COMBO.biom \
+  --type 'FeatureTable[Frequency]' \
+  --source-format BIOMV100Format \
+  --output-path /users/4/nan00017/Wu_COMBO_otu_table.qza
+#Use qiime change biome to qza
+
+
+The next steps: Continue
+How much time I/we spent: 50 mins
+Name(s): Junyu Nan
+###############
